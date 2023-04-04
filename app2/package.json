@@ -9,10 +9,22 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^6.5.7",
+    "@react-navigation/native": "^6.1.6",
+    "event-target-shim": "^6.0.2",
     "expo": "~48.0.10",
     "expo-status-bar": "~1.4.4",
+    "natural": "^6.2.0",
+    "navigation": "^6.1.0",
     "react": "18.2.0",
-    "react-native": "0.71.6"
+    "react-native": "^0.71.6",
+    "react-native-fs": "^2.20.0",
+    "react-native-gesture-handler": "^2.9.0",
+    "react-native-reanimated": "^3.0.2",
+    "react-native-screens": "^3.20.0",
+    "react-native-tab-view": "^3.5.1",
+    "translate": "^1.4.1",
+    "wn": "^0.0.30"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
