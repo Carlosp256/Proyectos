@@ -1,14 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Linking } from 'react-native';
+import React from 'react';
 
-export default function App() {
+const App = () => {
+  const handlePress = () => {
+    Linking.openURL('https://open.spotify.com/playlist/0nqumhURrLHkUDC0TjLP5p?si=1fe3058a6dc64b3c');
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <TouchableOpacity
+        onPress={handlePress}
+        style={styles.button}>
+        <Text style={styles.buttonText}>babe</Text>
+      </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -17,4 +24,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  button: {
+    backgroundColor: '#1DB954',
+    padding: 10,
+    borderRadius: 20,
+  },
+  buttonText: {
+    fontSize: 50,
+    color: 'white',
+  },
 });
+
+export default App;
+
