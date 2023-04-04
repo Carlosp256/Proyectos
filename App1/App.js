@@ -32,7 +32,7 @@ export default function TokenApp() {
       // Aquí puedes utilizar el token de acceso para realizar solicitudes a la API web de Spotify en nombre del usuario
     } catch (error) {
       console.error(error);
-      Alert.alert('Error', 'Hubo un problema al iniciar sesión en Spotify.');
+      Alert.alert('Error', `Hubo un problema al iniciar sesión en Spotify: ${error.message}`);
     }
   };
 
