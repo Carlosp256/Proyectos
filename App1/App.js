@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Button, Alert } from 'react-native';
 import axios from 'axios';
+import { encode } from 'base-64';
 
 export default function TokenApp() {
   const my_client_id = '5e42c81628ba42d480ca47a5dcc6691f';
@@ -8,6 +9,10 @@ export default function TokenApp() {
 
   const handleAuthPress = async () => {
     try {
+      // Codifica la cadena de autorización en base64 utilizando la biblioteca base-64
+      const auth = `${my_client_id}:${my_client_secret}`;
+      const base64Auth = encode(auth);
+
       // Realiza una solicitud para obtener un token de acceso
       const response = await axios({
         method: 'post',
@@ -16,7 +21,7 @@ export default function TokenApp() {
           grant_type: 'client_credentials'
         },
         headers: {
-          'Authorization': `Basic ${Buffer.from(`${my_client_id}:${my_client_secret}`).toString('base64')}`
+          'Authorization': `Basic ${base64Auth}`
         }
       });
 
