@@ -3,7 +3,7 @@ import React from 'react';
 
 const App = () => {
   const handlePress = () => {
-    Linking.openURL('https://wwww.google.com');
+    Linking.openURL('https://open.spotify.com/playlist/0nqumhURrLHkUDC0TjLP5p?si=1fe3058a6dc64b3c');
   };
 
   return (
