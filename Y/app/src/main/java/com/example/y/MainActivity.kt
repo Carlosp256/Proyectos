@@ -3,6 +3,7 @@ package com.example.y
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -52,8 +53,23 @@ class OptionsAdapter(private val optionsList: List<Option>) :
     class OptionViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OptionViewHolder {
-        val textView = LayoutInflater.from(parent.context)
-            .inflate(android.R.layout.simple_list_item_1, parent, false) as TextView
+        val textView = TextView(parent.context)
+        textView.layoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        textView.setPadding(8, 8, 8, 8)
+        textView.textSize = 16f
+        textView.gravity = Gravity.CENTER
+        textView.setBackgroundResource(R.drawable.option_background)
+        try {
+            // Establecer el margen inferior en 15 píxeles
+            val layoutParams = textView.layoutParams as ViewGroup.MarginLayoutParams
+            layoutParams.setMargins(0, 0, 0, 15)
+        } catch (e: ClassCastException) {
+            e.printStackTrace()
+        }
+
         return OptionViewHolder(textView)
     }
 

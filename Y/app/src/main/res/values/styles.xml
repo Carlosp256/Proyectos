@@ -1,0 +1,10 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Definición del estilo AppTheme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Color del texto -->
+        <item name="android:textColor">#fff</item>
+        <item name="android:windowBackground">#232323</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+</resources>
