@@ -1,5 +1,7 @@
 package com.example.y
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
-class Option(val code: String, val id: String, val name: String)
+class Option(val code: String, val id: String, val name: String, val url: String)
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             var line = r.readLine()
             while (line != null) {
                 val parts = line.split(";")
-                val option = Option(parts[0], parts[1], parts[2])
+                val option = Option(parts[0], parts[1], parts[2], "https://www.curriculumnacional.cl/portal/Ejes/Matematica/Medicion/${parts[1]}:")
                 optionsList.add(option)
                 line = r.readLine()
             }
@@ -57,6 +59,11 @@ class OptionsAdapter(private val optionsList: List<Option>) :
 
     override fun onBindViewHolder(holder: OptionViewHolder, position: Int) {
         holder.textView.text = optionsList[position].name
+        holder.textView.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(optionsList[position].url)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount() = optionsList.size
